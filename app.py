@@ -29,30 +29,9 @@ def main():
     return "Bienvenidos..."
 
 
-@app.route("/index")
-def menu():
-    heladeria = Heladeria("La Heladeria")
-    items = heladeria.lista_productos()
-    return render_template("index.html", items=items)
-
-
-@app.route("/productos")
-def lst_productos():
-    heladeria = Heladeria("La Heladeria")
-    items = heladeria.lista_productos()
-    return render_template("productos.html", items=items)
-
-
-@app.route("/ingredientes")
-def lst_ingredientes():
-    heladeria = Heladeria("La Heladeria")
-    items = heladeria.lista_ingredientes()
-    return render_template("ingredientes.html", items=items)
-
-
 api.add_resource(InfoController, '/info')
-api.add_resource(IndexController, '/index')
-api.add_resource(HeladeriaController, '/heladeria')
-api.add_resource(ProductosController, '/productos')
-api.add_resource(IngredientesController, '/ingredientes')
+api.add_resource(IndexController, '/index', endpoint="index")
+api.add_resource(HeladeriaController, '/heladeria', endpoint="heladeria")
+api.add_resource(ProductosController, '/los_productos', endpoint="lst_productos")
+api.add_resource(IngredientesController, '/los_ingredientes',  endpoint="lst_ingredientes")
 api.add_resource(ProductosIngredientesController, '/productos_ingredientes')
