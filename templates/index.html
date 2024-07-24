@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Home</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+<h1>Menú</h1>
+<table  class="w3-table-all w3-hoverable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Producto</th>
+        <th>Disponible</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in items%}
+    <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.nombre}}</td>
+        {% if item.ingredientes|length > 0 %}
+        <td>Si</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<p>
+<a href="{{ url_for('lst_productos') }}" >Productos</a> |
+<a href="{{ url_for('lst_ingredientes') }}" >Ingredientes</a>
+</p>
+
+<form action="/heladeria" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><b><label for="idProducto">Id producto:</label></b></td>
+            <td><input type="text" name="idProducto" id="idProducto" required></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">vender</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>

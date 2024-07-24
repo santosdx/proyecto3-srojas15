@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Heladeria</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>RESUMEN DE LA VENTA</h1>
+    <br>
+    <table class="w3-table-all w3-card-4">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><h3>Id Transacción:</h3></td>
+            <td><p>{{venta.id_transaccion}}</p></td>
+        </tr>
+        <tr>
+            <td><h3>Fecha:</h3></td>
+            <td><p>{{venta.fecha}}</p></td>
+        </tr>
+        <tr>
+            <td><h3>Producto:</h3></td>
+            <td><p>{{venta.producto.nombre}}</p></td>
+        </tr>
+        <tr>
+            <td><h3>Resultado:</h3></td>
+            <td><p>{{venta.resultado}}</p></td>
+        </tr>
+        <tr>
+            <td><h3>Valor venta:</h3></td>
+            <td><p>${{venta.valor}}</p></td>
+        </tr>
+        </tbody>
+    </table>
+<br>
+    <a href="{{ url_for('menu') }}" >Menú</a>
+</body>
+</html>
