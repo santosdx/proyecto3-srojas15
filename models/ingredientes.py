@@ -1,5 +1,4 @@
 from db import db
-from models.productos_ingredientes import ProductosIngredientes
 
 
 class Ingredientes(db.Model):
@@ -18,3 +17,8 @@ class Ingredientes(db.Model):
         self.vegetariano = vegetariano
         self.inventario = inventario
         self.sabor = sabor
+
+    def to_dict(self):
+        dic = {"nombre": self.nombre, "precio:": self.precio, "calorias:": self.calorias,
+               "vegetariano:": self.vegetariano, "inventario:": self.inventario, "sabor:": self.sabor}
+        return dic

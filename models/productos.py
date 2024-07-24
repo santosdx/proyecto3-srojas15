@@ -10,7 +10,8 @@ class Productos(db.Model):
     vaso = db.Column(db.String(), nullable=True)
     volumen = db.Column(db.Integer(), nullable=True)
 
-    ingredientes = db.relationship('Ingredientes', secondary='productos_ingredientes', lazy='subquery', backref=db.backref('productos', lazy=True))
+    ingredientes = db.relationship('Ingredientes', secondary='productos_ingredientes',
+                                   lazy='subquery', backref=db.backref('productos', lazy=True))
 
     def __init__(self, nombre: str, precio: float, vaso: str,  volumen: int, ingredientes: list):
         self.nombre = nombre
@@ -40,3 +41,7 @@ class Productos(db.Model):
 
     def calcular_rentabilidad(self):
         return funciones.producto_rentabilidad(self.precio, self.ingredientes)
+
+    def to_dict(self):
+        dic = {"nombre": self.nombre, "precio:": self.precio, "vaso:": self.vaso, "volumen:": self.volumen}
+        return dic

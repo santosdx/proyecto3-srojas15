@@ -81,3 +81,15 @@ class Heladeria:
             if item.sabor is None:
                 item.sabor = ""
         return ingredientes
+
+    def get_all_productos(self) -> list:
+        return Productos.query.all()
+
+    def get_producto_by_id(self, id_producto: int) -> list:
+        return Productos.query.get(id_producto)
+
+    def get_all_ingredientes(self) -> list:
+        return Ingredientes.query.all()
+
+    def get_ingredientes_by_id(self, id_ingrediente: int) -> list:
+        return Ingredientes.query.get(id_ingrediente)
