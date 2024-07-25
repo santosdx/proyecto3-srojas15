@@ -18,6 +18,22 @@ class Ingredientes(db.Model):
         self.inventario = inventario
         self.sabor = sabor
 
+    def abastecer(self):
+        if self.sabor is None:
+            '''Complemento'''
+            self.inventario = self.inventario + 10
+        else:
+            '''Base'''
+            self.inventario = self.inventario + 5
+
+    def renovar_inventario(self, inventario: int):
+        if self.sabor is None:
+            '''Complemento'''
+            self.inventario = inventario
+        else:
+            '''Base'''
+            self.inventario = inventario
+
     def to_dict(self):
         dic = {"nombre": self.nombre, "precio:": self.precio, "calorias:": self.calorias,
                "vegetariano:": self.vegetariano, "inventario:": self.inventario, "sabor:": self.sabor}
