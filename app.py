@@ -31,8 +31,7 @@ db.init_app(app)
 api = Api(app)
 login_manager = LoginManager(app)
 
-sys.setrecursionlimit(5000)
-import controllers.api_route_controllers
+import common.api_route_controllers
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -54,7 +53,7 @@ def logout():
 
 
 api.add_resource(InfoController, '/info')
-api.add_resource(LoginController, '/login')
+api.add_resource(LoginController, '/login', endpoint="login")
 api.add_resource(IndexController, '/index', endpoint="index")
 api.add_resource(HeladeriaController, '/heladeria', endpoint="heladeria")
 api.add_resource(ProductosController, '/los_productos', endpoint="lst_productos")
