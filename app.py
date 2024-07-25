@@ -31,7 +31,8 @@ db.init_app(app)
 api = Api(app)
 login_manager = LoginManager(app)
 
-import common.api_route_controllers
+import common.api_producto_route_controllers
+import common.api_ingrediente_route_controllers
 
 @login_manager.user_loader
 def load_user(user_id):
