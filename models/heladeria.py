@@ -85,17 +85,17 @@ class Heladeria:
     def get_all_productos(self) -> list:
         return Productos.query.all()
 
-    def get_producto_by_id(self, id_producto: int) -> list:
+    def get_producto_by_id(self, id_producto: int) -> Productos:
         return Productos.query.get(id_producto)
 
-    def get_producto_by_name(self, nombre: str) -> list:
+    def get_producto_by_name(self, nombre: str) -> Productos:
         return Productos.query.filter(Productos.nombre == nombre).first()
 
     def get_all_ingredientes(self) -> list:
         return Ingredientes.query.all()
 
-    def get_ingredientes_by_id(self, id_ingrediente: int) -> list:
+    def get_ingredientes_by_id(self, id_ingrediente: int) -> Ingredientes:
         return Ingredientes.query.get(id_ingrediente)
 
-    def get_ingrediente_by_name(self, nombre: str) -> list:
+    def get_ingrediente_by_name(self, nombre: str) -> Ingredientes:
         return Ingredientes.query.filter(Ingredientes.nombre == nombre).first()

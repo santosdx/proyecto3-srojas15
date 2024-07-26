@@ -50,7 +50,7 @@ def main():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("logincontroller"))
+    return redirect(url_for("login"))
 
 
 api.add_resource(InfoController, '/info')
